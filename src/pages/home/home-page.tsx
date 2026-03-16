@@ -1,32 +1,14 @@
-import { Button } from "@/components/ui/button"
-
 export function HomePage() {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center gap-6 p-8">
-      <h1 className="text-4xl font-bold tracking-tight">React Stack</h1>
-      <p className="text-muted-foreground max-w-md text-center">
-        A production-ready template with React 19, TanStack Router, TanStack
-        Query, shadcn/ui, and Tailwind CSS v4.
-      </p>
-      <div className="flex gap-4">
-        <Button variant="link" asChild>
-          <a
-            href="https://tanstack.com/router"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            TanStack Router
-          </a>
-        </Button>
-        <Button variant="link" asChild>
-          <a
-            href="https://ui.shadcn.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            shadcn/ui
-          </a>
-        </Button>
+    <div className="flex flex-1 items-center justify-center px-4">
+      <div className="max-w-lg text-center">
+        <h1 className="font-pixel text-5xl tracking-wide sm:text-6xl">
+          CriticalBit
+        </h1>
+        <p className="text-muted-foreground mt-4 text-lg">
+          Community gaming tools for the games you love.
+        </p>
+        <p className="text-muted-foreground mt-2 text-sm">Coming soon.</p>
       </div>
     </div>
   )
