@@ -1,7 +1,5 @@
 import { ThemeProvider } from "@/components/theme-provider"
-import { AnalyticsProvider } from "@/lib/analytics"
 import { AuthProvider } from "@/lib/auth"
-import { FeatureFlagProvider } from "@/lib/feature-flags"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import {
   createMemoryHistory,
@@ -29,10 +27,10 @@ interface RenderWithFileRoutesOptions extends Omit<RenderOptions, "wrapper"> {
 }
 
 const defaultAuth = {
-  isAuthenticated: true,
+  isAuthenticated: false,
   isLoading: false,
-  email: "test@example.com",
-  userId: "test-user-id",
+  email: null,
+  userId: null,
   login: () => {},
   logout: async () => {},
   checkAuth: async () => {},
@@ -79,12 +77,8 @@ export async function renderWithFileRoutes(
       <QueryClientProvider client={testQueryClient}>
         <ThemeProvider>
           <AuthProvider>
-            <AnalyticsProvider>
-              <FeatureFlagProvider staticFlags={{}}>
-                <RouterProvider router={testRouter} />
-                {ui}
-              </FeatureFlagProvider>
-            </AnalyticsProvider>
+            <RouterProvider router={testRouter} />
+            {ui}
           </AuthProvider>
         </ThemeProvider>
       </QueryClientProvider>,
