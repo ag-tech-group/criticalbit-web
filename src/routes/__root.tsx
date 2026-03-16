@@ -22,6 +22,8 @@ interface RouterContext {
     isLoading: boolean
     email: string | null
     userId: string | null
+    displayName: string | null
+    avatarUrl: string | null
     login: (email: string) => void
     logout: () => Promise<void>
     checkAuth: () => Promise<void>
