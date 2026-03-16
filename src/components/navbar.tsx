@@ -44,7 +44,9 @@ export function Navbar() {
             </>
           ) : (
             <Button variant="outline" size="sm" asChild>
-              <a href="https://auth.criticalbit.gg/login">Sign in</a>
+              <a href="https://auth.criticalbit.gg/login?redirect=https://criticalbit.gg">
+                Sign in
+              </a>
             </Button>
           )}
         </div>
