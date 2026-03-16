@@ -1,4 +1,4 @@
-import { ExternalLink, LogOut } from "lucide-react"
+import { ChevronDown, ExternalLink, LogOut } from "lucide-react"
 import { Link } from "@tanstack/react-router"
 import { Button } from "@/components/ui/button"
 import {
@@ -30,15 +30,16 @@ export function Navbar() {
           {auth.isAuthenticated ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className="hover:bg-accent/10 flex items-center gap-2 rounded-md px-2 py-1 transition-colors">
+                <button className="hover:bg-primary/10 flex items-center gap-2 rounded-md px-2 py-1 transition-colors">
                   <UserAvatar size="sm" />
                   <span className="text-muted-foreground hidden text-sm sm:inline">
                     {auth.displayName ?? auth.email}
                   </span>
+                  <ChevronDown className="text-muted-foreground size-3.5" />
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">
-                <DropdownMenuItem asChild>
+                <DropdownMenuItem asChild className="hover:bg-primary/10">
                   <a href="https://auth.criticalbit.gg/profile">
                     <ExternalLink className="size-4" />
                     Profile
@@ -46,6 +47,7 @@ export function Navbar() {
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
+                  className="hover:bg-primary/10"
                   onClick={async () => {
                     await auth.logout()
                     window.location.reload()
