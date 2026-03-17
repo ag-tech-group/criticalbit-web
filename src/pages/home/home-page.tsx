@@ -6,8 +6,9 @@ export function HomePage() {
       <div className="crt-screen border-border/40 relative flex flex-1 items-center justify-center overflow-hidden rounded-2xl border bg-black/80">
         <div className="crt-scanlines pointer-events-none absolute inset-0" />
         <div className="crt-curvature pointer-events-none absolute inset-0" />
+        <div className="crt-static pointer-events-none absolute inset-0" />
         <div className="crt-content relative text-center">
-          <h1 className="font-pixel text-6xl tracking-wide sm:text-8xl">
+          <h1 className="crt-glow font-pixel text-6xl tracking-wide sm:text-8xl">
             CriticalBit
           </h1>
           <p className="text-muted-foreground mt-4 text-lg">
