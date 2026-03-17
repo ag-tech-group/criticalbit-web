@@ -10,9 +10,8 @@
   z-index: 10;
 }
 
-/* Layer 2: CRT curvature — vignette + glass reflection + barrel shadow */
+/* Layer 2: CRT curvature — vignette */
 .crt-curvature {
-  /* Heavy vignette — dark corners = convex illusion */
   background: radial-gradient(
     ellipse 80% 70% at 50% 50%,
     transparent 60%,
@@ -36,11 +35,18 @@
   pointer-events: none;
 }
 
-/* Slight outward bulge on the border */
+/* CRT screen — bezel + convex bulge via perspective */
 .crt-screen {
+  perspective: 1200px;
   box-shadow:
-    0 0 0 3px rgba(40, 40, 60, 0.8),
-    0 0 0 6px rgba(30, 30, 45, 0.6),
-    0 0 40px rgba(0, 0, 0, 0.5),
+    0 0 0 4px rgba(35, 35, 50, 0.9),
+    0 0 0 8px rgba(25, 25, 40, 0.7),
+    0 0 50px rgba(0, 0, 0, 0.6),
     inset 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Inner content gets a slight forward push — center feels closer */
+.crt-screen > .crt-content {
+  transform: translateZ(20px) scale(0.97);
+  transform-style: preserve-3d;
 }
