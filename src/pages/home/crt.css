@@ -1,0 +1,46 @@
+/* Layer 1: Scan lines */
+.crt-scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(200, 200, 200, 0.06) 2px,
+    rgba(200, 200, 200, 0.06) 4px
+  );
+  z-index: 10;
+}
+
+/* Layer 2: CRT curvature — vignette + glass reflection + barrel shadow */
+.crt-curvature {
+  /* Heavy vignette — dark corners = convex illusion */
+  background: radial-gradient(
+    ellipse 80% 70% at 50% 50%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  z-index: 20;
+}
+
+/* Glass reflection highlight — top-left gleam */
+.crt-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  background: radial-gradient(
+    ellipse 40% 30% at 30% 25%,
+    rgba(255, 255, 255, 0.04) 0%,
+    transparent 100%
+  );
+  z-index: 25;
+  pointer-events: none;
+}
+
+/* Slight outward bulge on the border */
+.crt-screen {
+  box-shadow:
+    0 0 0 3px rgba(40, 40, 60, 0.8),
+    0 0 0 6px rgba(30, 30, 45, 0.6),
+    0 0 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 30px rgba(0, 0, 0, 0.3);
+}
