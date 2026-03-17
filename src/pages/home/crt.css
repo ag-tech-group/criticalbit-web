@@ -1,0 +1,234 @@
+/* Layer 1: Scan lines */
+.crt-scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(200, 200, 200, 0.06) 2px,
+    rgba(200, 200, 200, 0.06) 4px
+  );
+  z-index: 10;
+}
+
+/* Layer 2: CRT curvature — vignette */
+.crt-curvature {
+  background: radial-gradient(
+    ellipse 80% 70% at 50% 50%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  z-index: 20;
+}
+
+/* Layer 3: Flickering horizontal static lines */
+.crt-static {
+  z-index: 15;
+  opacity: 0;
+  animation: crt-static-flicker 12s infinite;
+}
+
+.crt-static::before,
+.crt-static::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.06);
+}
+
+.crt-static::before {
+  top: 30%;
+  animation: crt-static-drift-1 12s infinite;
+}
+
+.crt-static::after {
+  top: 65%;
+  animation: crt-static-drift-2 12s infinite;
+}
+
+@keyframes crt-static-flicker {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  7% {
+    opacity: 0;
+  }
+  13% {
+    opacity: 0;
+  }
+  14% {
+    opacity: 1;
+  }
+  16.5% {
+    opacity: 0;
+  }
+  28% {
+    opacity: 0;
+  }
+  29% {
+    opacity: 1;
+  }
+  31% {
+    opacity: 0;
+  }
+  31.3% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+  47% {
+    opacity: 0;
+  }
+  48% {
+    opacity: 1;
+  }
+  51% {
+    opacity: 0;
+  }
+  62% {
+    opacity: 0;
+  }
+  63% {
+    opacity: 1;
+  }
+  64.5% {
+    opacity: 0;
+  }
+  64.8% {
+    opacity: 1;
+  }
+  67% {
+    opacity: 0;
+  }
+  77% {
+    opacity: 0;
+  }
+  78% {
+    opacity: 1;
+  }
+  81% {
+    opacity: 0;
+  }
+  91% {
+    opacity: 0;
+  }
+  92% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 0;
+  }
+  93.3% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 0;
+  }
+}
+
+@keyframes crt-static-drift-1 {
+  0% {
+    top: 20%;
+  }
+  15% {
+    top: 40%;
+  }
+  30% {
+    top: 10%;
+  }
+  50% {
+    top: 55%;
+  }
+  65% {
+    top: 25%;
+  }
+  80% {
+    top: 48%;
+  }
+  100% {
+    top: 20%;
+  }
+}
+
+@keyframes crt-static-drift-2 {
+  0% {
+    top: 70%;
+  }
+  20% {
+    top: 55%;
+  }
+  35% {
+    top: 80%;
+  }
+  55% {
+    top: 45%;
+  }
+  70% {
+    top: 72%;
+  }
+  85% {
+    top: 58%;
+  }
+  100% {
+    top: 70%;
+  }
+}
+
+/* Layer 4: CRT phosphor glow on title */
+.crt-glow {
+  color: var(--primary);
+  text-shadow:
+    0 0 20px var(--primary),
+    0 0 50px color-mix(in oklch, var(--primary) 70%, transparent),
+    0 0 100px color-mix(in oklch, var(--primary) 45%, transparent),
+    0 0 150px color-mix(in oklch, var(--primary) 20%, transparent);
+  animation: crt-glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes crt-glow-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.92;
+  }
+}
+
+/* Glass reflection highlight — top-left gleam */
+.crt-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  background: radial-gradient(
+    ellipse 40% 30% at 30% 25%,
+    rgba(255, 255, 255, 0.04) 0%,
+    transparent 100%
+  );
+  z-index: 25;
+  pointer-events: none;
+}
+
+/* CRT screen — bezel + convex bulge via perspective */
+.crt-screen {
+  perspective: 1200px;
+  box-shadow:
+    0 0 0 4px rgba(35, 35, 50, 0.9),
+    0 0 0 8px rgba(25, 25, 40, 0.7),
+    0 0 50px rgba(0, 0, 0, 0.6),
+    inset 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Inner content gets a slight forward push — center feels closer */
+.crt-screen > .crt-content {
+  transform: translateZ(20px) scale(0.97);
+  transform-style: preserve-3d;
+}
