@@ -28,6 +28,14 @@ export function PrivacyPage() {
         <section>
           <h2 className="mb-2 text-lg font-semibold">What we collect</h2>
           <p>
+            When you visit and use the site, we collect product analytics events
+            about page views and feature interactions, along with your IP
+            address and browser user-agent string. This helps us understand
+            usage patterns and prioritize improvements. These events are not
+            currently associated with any persistent user identifier — each site
+            visit is treated as a new anonymous session.
+          </p>
+          <p>
             When you create an account, we collect your email address. If you
             sign in with Google or Steam, we receive your profile information
             (name, avatar) from those services.
@@ -107,9 +115,12 @@ export function PrivacyPage() {
               (password resets).
             </li>
             <li>
-              <strong>PostHog</strong> — for anonymous, cookie-free product
-              analytics across criticalbit tools. No personal identifiers or
-              cross-session tracking. Subject to{" "}
+              <strong>PostHog</strong> — for product analytics across
+              criticalbit tools. PostHog receives page views, interaction
+              events, your IP address, and browser user-agent string. It is
+              currently configured without cross-session tracking cookies; each
+              site visit is treated as a new anonymous session with no
+              persistent user identifier. Subject to{" "}
               <a
                 href="https://posthog.com/privacy"
                 className="text-primary underline"
