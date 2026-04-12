@@ -3,17 +3,44 @@ export function PrivacyPage() {
     <div className="mx-auto max-w-2xl px-4 py-12">
       <h1 className="font-pixel mb-8 text-3xl tracking-wide">Privacy Policy</h1>
       <p className="text-muted-foreground mb-6 text-sm">
-        Last updated: April 11, 2026
+        Last updated: April 12, 2026
       </p>
 
       <div className="prose prose-sm dark:prose-invert max-w-none space-y-6 text-sm leading-relaxed">
+        <section>
+          <h2 className="mb-2 text-lg font-semibold">
+            Who operates this service
+          </h2>
+          <p>
+            criticalbit.gg and its tools are operated by{" "}
+            <strong>AG Technology Group LLC</strong>, the data controller for
+            the purposes of this policy. For privacy-related inquiries, contact{" "}
+            <a
+              href="mailto:privacy@criticalbit.gg"
+              className="text-primary underline"
+            >
+              privacy@criticalbit.gg
+            </a>
+            .
+          </p>
+        </section>
+
         <section>
           <h2 className="mb-2 text-lg font-semibold">What we collect</h2>
           <p>
             When you create an account, we collect your email address. If you
             sign in with Google or Steam, we receive your profile information
-            (name, avatar) from those services. We do not sell or share your
-            personal data with third parties.
+            (name, avatar) from those services.
+          </p>
+          <p>
+            If an error occurs while you are using the site, we collect a
+            diagnostic report containing a JavaScript stack trace, the URL where
+            the error happened, your browser version, and your IP address. This
+            helps us identify and fix bugs.
+          </p>
+          <p>
+            We do not sell or share your personal data with third parties for
+            advertising or marketing purposes.
           </p>
         </section>
 
@@ -94,6 +121,48 @@ export function PrivacyPage() {
               .
             </li>
             <li>
+              <strong>Sentry</strong> — for error tracking and performance
+              monitoring. Sentry receives JavaScript stack traces, the URL where
+              errors occur, your IP address, and browser headers. Subject to{" "}
+              <a
+                href="https://sentry.io/privacy/"
+                className="text-primary underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Sentry's Privacy Policy
+              </a>
+              .
+            </li>
+            <li>
+              <strong>Netlify</strong> — for frontend hosting and CDN. Netlify
+              automatically records access logs (IP, timestamp, URL) for each
+              request. Subject to{" "}
+              <a
+                href="https://www.netlify.com/privacy/"
+                className="text-primary underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Netlify's Privacy Policy
+              </a>
+              .
+            </li>
+            <li>
+              <strong>Google Cloud Platform</strong> — for backend hosting,
+              databases, and logging. Processes API request data and
+              authenticated user data. Subject to{" "}
+              <a
+                href="https://cloud.google.com/terms/cloud-privacy-notice"
+                className="text-primary underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google Cloud's Privacy Notice
+              </a>
+              .
+            </li>
+            <li>
               <strong>Cloudflare</strong> — for DNS, CDN, and DDoS protection.
             </li>
           </ul>
@@ -105,6 +174,58 @@ export function PrivacyPage() {
             Your account data is retained as long as your account is active. You
             may request deletion of your account and all associated data by
             contacting us.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="mb-2 text-lg font-semibold">Your rights</h2>
+          <p>
+            Under GDPR, CCPA, and similar regulations, you have the right to
+            access the data we hold about you, correct inaccurate data, delete
+            your account and associated data, export your data in a portable
+            format, object to specific types of processing, and withdraw consent
+            for optional processing at any time.
+          </p>
+          <p>
+            To exercise any of these rights, email{" "}
+            <a
+              href="mailto:privacy@criticalbit.gg"
+              className="text-primary underline"
+            >
+              privacy@criticalbit.gg
+            </a>
+            . We aim to respond within 30 days.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="mb-2 text-lg font-semibold">
+            International data transfers
+          </h2>
+          <p>
+            If you are located in the European Economic Area, the United
+            Kingdom, or Switzerland, your data will be transferred to and stored
+            in the United States by our hosting and analytics providers (Sentry,
+            PostHog, Netlify, Google Cloud Platform, Resend). These transfers
+            are protected by the EU-US Data Privacy Framework, and our providers
+            are signatories to it.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="mb-2 text-lg font-semibold">Children's privacy</h2>
+          <p>
+            This service is not directed at children under 13 years of age (or
+            the equivalent minimum age in your jurisdiction). We do not
+            knowingly collect personal data from children under 13. If you
+            believe a child has provided information to us, email{" "}
+            <a
+              href="mailto:privacy@criticalbit.gg"
+              className="text-primary underline"
+            >
+              privacy@criticalbit.gg
+            </a>{" "}
+            and we will delete the account and any associated data.
           </p>
         </section>
 
