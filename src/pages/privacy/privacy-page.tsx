@@ -3,7 +3,7 @@ export function PrivacyPage() {
     <div className="mx-auto max-w-2xl px-4 py-12">
       <h1 className="font-pixel mb-8 text-3xl tracking-wide">Privacy Policy</h1>
       <p className="text-muted-foreground mb-6 text-sm">
-        Last updated: March 16, 2026
+        Last updated: April 11, 2026
       </p>
 
       <div className="prose prose-sm dark:prose-invert max-w-none space-y-6 text-sm leading-relaxed">
@@ -42,8 +42,9 @@ export function PrivacyPage() {
           <p>
             We use httpOnly cookies for authentication (JWT access and refresh
             tokens). These are strictly functional — we do not use tracking or
-            advertising cookies. Cloudflare may set a performance cookie as part
-            of its CDN service.
+            advertising cookies. Our analytics provider (PostHog) is configured
+            in cookie-free mode and does not set any cookies. Cloudflare may set
+            a performance cookie as part of its CDN service.
           </p>
         </section>
 
@@ -77,6 +78,20 @@ export function PrivacyPage() {
             <li>
               <strong>Resend</strong> — for transactional email delivery
               (password resets).
+            </li>
+            <li>
+              <strong>PostHog</strong> — for anonymous, cookie-free product
+              analytics across criticalbit tools. No personal identifiers or
+              cross-session tracking. Subject to{" "}
+              <a
+                href="https://posthog.com/privacy"
+                className="text-primary underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                PostHog's Privacy Policy
+              </a>
+              .
             </li>
             <li>
               <strong>Cloudflare</strong> — for DNS, CDN, and DDoS protection.
