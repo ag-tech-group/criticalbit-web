@@ -36,9 +36,14 @@ export function PrivacyPage() {
             When you visit and use the site, we collect product analytics events
             about page views and feature interactions, along with your IP
             address and browser user-agent string. This helps us understand
-            usage patterns and prioritize improvements. These events are not
-            currently associated with any persistent user identifier — each site
-            visit is treated as a new anonymous session.
+            usage patterns and prioritize improvements. By default — for
+            visitors who have not explicitly opted in to analytics — these
+            events are not associated with any persistent user identifier and
+            each site visit is treated as a new anonymous session. If you opt in
+            to analytics via the Privacy and data section of your profile, your
+            events are linked under a stable identifier that persists across
+            sessions and across our tools (for example, your activity on this
+            site and on vagrant-story.criticalbit.gg would be tied together).
           </p>
           <p>
             When you create an account, we collect your email address. If you
@@ -81,10 +86,22 @@ export function PrivacyPage() {
           <h2 className="mb-2 text-lg font-semibold">Cookies</h2>
           <p>
             We use httpOnly cookies for authentication (JWT access and refresh
-            tokens). These are strictly functional — we do not use tracking or
-            advertising cookies. Our analytics provider (PostHog) is configured
-            in cookie-free mode and does not set any cookies. Cloudflare may set
-            a performance cookie as part of its CDN service.
+            tokens). These are strictly functional and cannot be disabled if you
+            want to stay signed in. We do not use advertising cookies.
+          </p>
+          <p>
+            Our analytics provider (PostHog) runs in cookie-free memory mode by
+            default — no persistent identifier is stored and no cross-session
+            tracking happens. If you explicitly opt in to analytics via the
+            Privacy and data section of your profile, PostHog switches to a
+            cookie-backed mode and sets a cross-tool cookie on{" "}
+            <code>.criticalbit.gg</code> so your activity can be linked across
+            our tools under a single stable identifier. You can revoke that
+            consent at any time from the same profile page; the cookie is
+            cleared on your next page reload.
+          </p>
+          <p>
+            Cloudflare may set a performance cookie as part of its CDN service.
           </p>
         </section>
 
@@ -122,10 +139,12 @@ export function PrivacyPage() {
             <li>
               <strong>PostHog</strong> — for product analytics across
               criticalbit tools. PostHog receives page views, interaction
-              events, your IP address, and browser user-agent string. It is
-              currently configured without cross-session tracking cookies; each
-              site visit is treated as a new anonymous session with no
-              persistent user identifier. Subject to{" "}
+              events, your IP address, and browser user-agent string. By default
+              PostHog runs in cookie-free mode without a persistent user
+              identifier. If you opt in to analytics via the Privacy and data
+              section of your profile, your events are linked under a stable
+              identifier that persists across sessions and criticalbit
+              subdomains. Subject to{" "}
               <a
                 href="https://posthog.com/privacy"
                 className="text-primary underline"
@@ -139,7 +158,13 @@ export function PrivacyPage() {
             <li>
               <strong>Sentry</strong> — for error tracking and performance
               monitoring. Sentry receives JavaScript stack traces, the URL where
-              errors occur, your IP address, and browser headers. Subject to{" "}
+              errors occur, your IP address, and browser headers. When an error
+              happens, Sentry also captures a short session replay (a recording
+              of the preceding interactions, with text and media masked) to aid
+              debugging. If you opt in to session recording via the Privacy and
+              data section of your profile, a sample of your normal sessions is
+              also recorded for general debuggability — again with text and
+              media masked. Subject to{" "}
               <a
                 href="https://sentry.io/privacy/"
                 className="text-primary underline"
