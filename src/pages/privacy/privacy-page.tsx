@@ -18,8 +18,9 @@ export function PrivacyPage() {
           </h2>
           <p>
             criticalbit.gg and its tools are operated by{" "}
-            <strong>AG Technology Group LLC</strong>, the data controller for
-            the purposes of this policy. For privacy-related inquiries, contact{" "}
+            <span className="font-semibold">AG Technology Group LLC</span>, the
+            data controller for the purposes of this policy. For privacy-related
+            inquiries, contact{" "}
             <a
               href="mailto:privacy@criticalbit.gg"
               className="text-primary underline"
@@ -42,8 +43,7 @@ export function PrivacyPage() {
             each site visit is treated as a new anonymous session. If you opt in
             to analytics via the Privacy and data section of your profile, your
             events are linked under a stable identifier that persists across
-            sessions and across our tools (for example, your activity on this
-            site and on vagrant-story.criticalbit.gg would be tied together).
+            sessions and across our tools.
           </p>
           <p>
             When you create an account, we collect your email address. If you
@@ -66,18 +66,19 @@ export function PrivacyPage() {
           <h2 className="mb-2 text-lg font-semibold">How we use your data</h2>
           <ul className="list-disc space-y-1 pl-5">
             <li>
-              <strong>Authentication</strong> — to identify you across
-              criticalbit.gg tools and games.
+              <span className="font-semibold">Authentication</span> — to
+              identify you across criticalbit.gg tools and games.
             </li>
             <li>
-              <strong>Email</strong> — to send password reset links and
-              important account notifications. We will never send marketing
-              emails.
+              <span className="font-semibold">Email</span> — to send password
+              reset links and important account notifications. We will never
+              send marketing emails.
             </li>
             <li>
-              <strong>Game data</strong> — if you upload save files or use tool
-              features, that data is stored to provide the service and is tied
-              to your account.
+              <span className="font-semibold">Game data</span> — when you upload
+              a save file, we parse it to extract the data our tools need
+              (inventory, stats, progression) and store only that derived data
+              tied to your account. The original save file is not retained.
             </li>
           </ul>
         </section>
@@ -85,23 +86,9 @@ export function PrivacyPage() {
         <section>
           <h2 className="mb-2 text-lg font-semibold">Cookies</h2>
           <p>
-            We use httpOnly cookies for authentication (JWT access and refresh
-            tokens). These are strictly functional and cannot be disabled if you
-            want to stay signed in. We do not use advertising cookies.
-          </p>
-          <p>
-            Our analytics provider (PostHog) runs in cookie-free memory mode by
-            default — no persistent identifier is stored and no cross-session
-            tracking happens. If you explicitly opt in to analytics via the
-            Privacy and data section of your profile, PostHog switches to a
-            cookie-backed mode and sets a cross-tool cookie on{" "}
-            <code>.criticalbit.gg</code> so your activity can be linked across
-            our tools under a single stable identifier. You can revoke that
-            consent at any time from the same profile page; the cookie is
-            cleared on your next page reload.
-          </p>
-          <p>
-            Cloudflare may set a performance cookie as part of its CDN service.
+            We use authentication cookies to keep you signed in. These are
+            strictly functional and cannot be disabled. We do not use
+            advertising cookies.
           </p>
         </section>
 
@@ -109,7 +96,8 @@ export function PrivacyPage() {
           <h2 className="mb-2 text-lg font-semibold">Third-party services</h2>
           <ul className="list-disc space-y-1 pl-5">
             <li>
-              <strong>Google OAuth</strong> — for sign-in. Subject to{" "}
+              <span className="font-semibold">Google OAuth</span> — sign-in
+              provider. Subject to{" "}
               <a
                 href="https://policies.google.com/privacy"
                 className="text-primary underline"
@@ -121,7 +109,8 @@ export function PrivacyPage() {
               .
             </li>
             <li>
-              <strong>Steam OpenID</strong> — for sign-in. Subject to{" "}
+              <span className="font-semibold">Steam OpenID</span> — sign-in
+              provider. Subject to{" "}
               <a
                 href="https://store.steampowered.com/privacy_agreement/"
                 className="text-primary underline"
@@ -133,18 +122,12 @@ export function PrivacyPage() {
               .
             </li>
             <li>
-              <strong>Resend</strong> — for transactional email delivery
-              (password resets).
+              <span className="font-semibold">Resend</span> — transactional
+              email delivery.
             </li>
             <li>
-              <strong>PostHog</strong> — for product analytics across
-              criticalbit tools. PostHog receives page views, interaction
-              events, your IP address, and browser user-agent string. By default
-              PostHog runs in cookie-free mode without a persistent user
-              identifier. If you opt in to analytics via the Privacy and data
-              section of your profile, your events are linked under a stable
-              identifier that persists across sessions and criticalbit
-              subdomains. Subject to{" "}
+              <span className="font-semibold">PostHog</span> — product
+              analytics. Subject to{" "}
               <a
                 href="https://posthog.com/privacy"
                 className="text-primary underline"
@@ -156,15 +139,8 @@ export function PrivacyPage() {
               .
             </li>
             <li>
-              <strong>Sentry</strong> — for error tracking and performance
-              monitoring. Sentry receives JavaScript stack traces, the URL where
-              errors occur, your IP address, and browser headers. When an error
-              happens, Sentry also captures a short session replay (a recording
-              of the preceding interactions, with text and media masked) to aid
-              debugging. If you opt in to session recording via the Privacy and
-              data section of your profile, a sample of your normal sessions is
-              also recorded for general debuggability — again with text and
-              media masked. Subject to{" "}
+              <span className="font-semibold">Sentry</span> — error tracking,
+              performance monitoring, and session replay. Subject to{" "}
               <a
                 href="https://sentry.io/privacy/"
                 className="text-primary underline"
@@ -176,9 +152,8 @@ export function PrivacyPage() {
               .
             </li>
             <li>
-              <strong>Netlify</strong> — for frontend hosting and CDN. Netlify
-              automatically records access logs (IP, timestamp, URL) for each
-              request. Subject to{" "}
+              <span className="font-semibold">Netlify</span> — frontend hosting
+              and CDN. Subject to{" "}
               <a
                 href="https://www.netlify.com/privacy/"
                 className="text-primary underline"
@@ -190,9 +165,8 @@ export function PrivacyPage() {
               .
             </li>
             <li>
-              <strong>Google Cloud Platform</strong> — for backend hosting,
-              databases, and logging. Processes API request data and
-              authenticated user data. Subject to{" "}
+              <span className="font-semibold">Google Cloud Platform</span> —
+              backend hosting and database. Subject to{" "}
               <a
                 href="https://cloud.google.com/terms/cloud-privacy-notice"
                 className="text-primary underline"
@@ -204,7 +178,8 @@ export function PrivacyPage() {
               .
             </li>
             <li>
-              <strong>Cloudflare</strong> — for DNS, CDN, and DDoS protection.
+              <span className="font-semibold">Cloudflare</span> — DNS, CDN, and
+              DDoS protection.
             </li>
           </ul>
         </section>
@@ -213,8 +188,8 @@ export function PrivacyPage() {
           <h2 className="mb-2 text-lg font-semibold">Data retention</h2>
           <p>
             Your account data is retained as long as your account is active. You
-            may request deletion of your account and all associated data by
-            contacting us.
+            can delete your account and all associated data at any time from
+            your profile page.
           </p>
         </section>
 
@@ -228,7 +203,8 @@ export function PrivacyPage() {
             for optional processing at any time.
           </p>
           <p>
-            To exercise any of these rights, email{" "}
+            You can delete your account and withdraw analytics consent directly
+            from your profile page. For any other request, email{" "}
             <a
               href="mailto:privacy@criticalbit.gg"
               className="text-primary underline"
