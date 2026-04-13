@@ -2,8 +2,13 @@ export function PrivacyPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-12">
       <h1 className="font-pixel mb-8 text-3xl tracking-wide">Privacy Policy</h1>
+      {/*
+       * Keep the ISO date below in sync with CURRENT_POLICY_VERSION in
+       * criticalbit-auth-api app/consent/constants.py — bumping it is what
+       * triggers consent re-prompting for existing users.
+       */}
       <p className="text-muted-foreground mb-6 text-sm">
-        Last updated: April 12, 2026
+        Last updated: April 12, 2026 (version 2026-04-12)
       </p>
 
       <div className="prose prose-sm dark:prose-invert max-w-none space-y-6 text-sm leading-relaxed">
