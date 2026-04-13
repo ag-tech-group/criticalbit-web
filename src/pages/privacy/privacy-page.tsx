@@ -75,10 +75,9 @@ export function PrivacyPage() {
               send marketing emails.
             </li>
             <li>
-              <span className="font-semibold">Game data</span> — when you upload
-              a save file, we parse it to extract the data our tools need
-              (inventory, stats, progression) and store only that derived data
-              tied to your account. The original save file is not retained.
+              <span className="font-semibold">Game data</span> — we collect
+              relevant data from save files and other game-related information
+              you provide.
             </li>
           </ul>
         </section>
