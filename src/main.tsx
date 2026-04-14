@@ -42,18 +42,28 @@ function AppShellSkeleton() {
           </div>
         </div>
       </nav>
-      <div className="relative flex min-h-screen pt-14">
-        <div className="mx-auto w-full max-w-6xl space-y-8 px-6 pt-16">
-          <div className="space-y-4 text-center">
-            <Skeleton className="mx-auto h-14 w-96" />
-            <Skeleton className="mx-auto h-5 w-[32rem] max-w-full" />
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <Skeleton key={i} className="h-20 w-full" />
-            ))}
+      <div className="flex min-h-screen flex-col pt-14">
+        <div className="flex flex-1 p-4">
+          <div className="border-border/40 relative flex flex-1 items-center justify-center overflow-hidden rounded-2xl border bg-black/80">
+            <div className="flex flex-col items-center gap-6 px-6 text-center">
+              <Skeleton className="h-16 w-72 bg-white/30 sm:h-24 sm:w-[28rem]" />
+              <Skeleton className="h-5 w-80 bg-white/30" />
+              <div className="mt-4 flex w-full max-w-md flex-col gap-3">
+                <Skeleton className="h-10 w-full bg-white/30" />
+                <Skeleton className="h-10 w-full bg-white/30" />
+              </div>
+            </div>
           </div>
         </div>
+        <footer className="border-border/50 border-t px-4 py-3">
+          <div className="flex items-center justify-between">
+            <Skeleton className="h-3 w-64" />
+            <div className="flex gap-4">
+              <Skeleton className="h-3 w-12" />
+              <Skeleton className="h-3 w-10" />
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   )
