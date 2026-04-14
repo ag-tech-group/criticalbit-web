@@ -7,6 +7,7 @@ import { reactErrorHandler } from "@sentry/react"
 import "@fontsource-variable/geist"
 import { ThemeProvider } from "./components/theme-provider"
 import "./index.css"
+import { Skeleton } from "./components/ui/skeleton"
 import { AnalyticsProvider, createAnalyticsBackend } from "./lib/analytics"
 import { AuthProvider, useAuth } from "./lib/auth"
 import { initSentry } from "./lib/sentry"
@@ -29,9 +30,38 @@ declare module "@tanstack/react-router" {
   }
 }
 
+function AppShellSkeleton() {
+  return (
+    <>
+      <nav className="border-border/50 bg-background/80 fixed top-0 z-50 w-full border-b backdrop-blur-sm">
+        <div className="flex h-14 items-center justify-between px-4">
+          <span className="font-pixel text-lg tracking-wide">CriticalBit</span>
+          <div className="flex items-center gap-2">
+            <Skeleton className="size-8 rounded-md" />
+            <Skeleton className="h-8 w-20 rounded-md" />
+          </div>
+        </div>
+      </nav>
+      <div className="relative flex min-h-screen pt-14">
+        <div className="mx-auto w-full max-w-6xl space-y-8 px-6 pt-16">
+          <div className="space-y-4 text-center">
+            <Skeleton className="mx-auto h-14 w-96" />
+            <Skeleton className="mx-auto h-5 w-[32rem] max-w-full" />
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <Skeleton key={i} className="h-20 w-full" />
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
+
 function App() {
   const auth = useAuth()
-  if (auth.isLoading) return null
+  if (auth.isLoading) return <AppShellSkeleton />
   return <RouterProvider router={router} context={{ auth }} />
 }
 
