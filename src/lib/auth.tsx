@@ -8,6 +8,13 @@ import {
   useState,
 } from "react"
 import { api, setOnUnauthorized } from "@/api/api"
+import { resetAnalytics } from "@/lib/analytics"
+import {
+  clearCachedConsents,
+  fetchConsents,
+  writeCachedConsents,
+  type ConsentsResponse,
+} from "@/lib/consent"
 
 const EMAIL_KEY = "app_auth_email"
 
@@ -18,6 +25,7 @@ interface AuthContextValue {
   userId: string | null
   displayName: string | null
   avatarUrl: string | null
+  consents: ConsentsResponse | null
   login: (email: string) => void
   logout: () => Promise<void>
   checkAuth: () => Promise<void>
@@ -35,6 +43,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [userId, setUserId] = useState<string | null>(null)
   const [displayName, setDisplayName] = useState<string | null>(null)
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null)
+  const [consents, setConsents] = useState<ConsentsResponse | null>(null)
 
   const clearState = useCallback(() => {
     localStorage.removeItem(EMAIL_KEY)
@@ -43,6 +52,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUserId(null)
     setDisplayName(null)
     setAvatarUrl(null)
+    setConsents(null)
+    clearCachedConsents()
+    resetAnalytics()
     queryClient.clear()
   }, [queryClient])
 
@@ -75,6 +87,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setDisplayName(user.display_name)
       setAvatarUrl(user.avatar_url)
       localStorage.setItem(EMAIL_KEY, user.email)
+      // Consent hydration must not block auth — if the fetch fails the user
+      // still appears logged in; boot-time init falls back to the previous
+      // cached choices (or no consent at all on a fresh browser).
+      try {
+        const fresh = await fetchConsents()
+        setConsents(fresh)
+        writeCachedConsents(fresh)
+      } catch {
+        setConsents(null)
+      }
     } catch {
       clearState()
     } finally {
@@ -100,6 +122,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       userId,
       displayName,
       avatarUrl,
+      consents,
       login,
       logout,
       checkAuth,
@@ -111,6 +134,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       userId,
       displayName,
       avatarUrl,
+      consents,
       login,
       logout,
       checkAuth,
