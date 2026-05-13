@@ -15,11 +15,11 @@ Hub site for [criticalbit.gg](https://criticalbit.gg) — the landing page for t
 
 ## Pages
 
-| Route      | Description      |
-| ---------- | ---------------- |
-| `/`        | Landing page     |
-| `/privacy` | Privacy policy   |
-| `/terms`   | Terms of service |
+| Route      | Description                                                      |
+| ---------- | ---------------------------------------------------------------- |
+| `/`        | Arcade-style landing page (CRT effect) linking to platform games |
+| `/privacy` | Privacy policy                                                   |
+| `/terms`   | Terms of service                                                 |
 
 ## Features
 
@@ -27,6 +27,9 @@ Hub site for [criticalbit.gg](https://criticalbit.gg) — the landing page for t
 - Shared auth state via `.criticalbit.gg` cookie (sign in/out, avatar, display name)
 - Dark mode (default) and light mode with cross-subdomain sync
 - User dropdown with profile link and sign out
+- App-shell skeleton on first paint (no blank flash before hydration)
+- Error tracking (Sentry) and product analytics (PostHog) — PostHog capture and session replay are gated on the signed-in user's recorded consent (`GET /user/consents`, set on the auth-web profile page); no consent record means no capture
+- Runtime feature flags fetched from the auth API (`GET /flags`)
 
 ## Development
 
