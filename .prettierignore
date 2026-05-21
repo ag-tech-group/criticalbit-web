@@ -6,3 +6,6 @@ pnpm-lock.yaml
 # Generated files
 src/routeTree.gen.ts
 src/api/generated
+
+# Design reference (hand-authored, includes embedded base64 fonts)
+docs/
