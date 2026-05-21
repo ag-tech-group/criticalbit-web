@@ -1,4 +1,6 @@
 import { useRef, type KeyboardEvent } from "react"
+import { RingBurstIcon } from "@/components/ring-burst-icon"
+import { Wordmark } from "@/components/wordmark"
 import "./crt.css"
 
 export function HomePage() {
@@ -31,9 +33,9 @@ export function HomePage() {
           <div className="crt-curvature pointer-events-none absolute inset-0" />
           <div className="crt-static pointer-events-none absolute inset-0" />
           <div className="crt-content relative text-center">
-            <h1 className="crt-glow font-pixel text-6xl tracking-wide sm:text-8xl">
-              <span className="text-white">Critical</span>
-              <span>Bit</span>
+            <RingBurstIcon className="crt-glow-icon mx-auto mb-4 block size-16 sm:size-24" />
+            <h1 className="crt-glow text-4xl sm:text-7xl">
+              <Wordmark />
             </h1>
             <p className="text-muted-foreground mt-4 text-lg">
               Community gaming tools for the games you love.
