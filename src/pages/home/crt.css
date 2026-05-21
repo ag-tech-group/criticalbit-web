@@ -202,6 +202,15 @@
   }
 }
 
+/* Icon counterpart to .crt-glow — drop-shadow reaches SVG shapes that
+   text-shadow cannot. */
+.crt-glow-icon {
+  color: var(--primary);
+  filter: drop-shadow(0 0 14px var(--primary))
+    drop-shadow(0 0 36px color-mix(in oklch, var(--primary) 50%, transparent));
+  animation: crt-glow-pulse 3s ease-in-out infinite;
+}
+
 /* Glass reflection highlight — top-left gleam */
 .crt-screen::before {
   content: "";
@@ -405,6 +414,7 @@
   .crt-tube,
   .crt-screen::after,
   .crt-glow,
+  .crt-glow-icon,
   .crt-static,
   .crt-menu-row--active .crt-menu-cursor {
     animation: none;

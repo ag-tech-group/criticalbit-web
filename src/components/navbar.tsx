@@ -1,5 +1,6 @@
 import { ChevronDown, ExternalLink, LogOut } from "lucide-react"
 import { Link } from "@tanstack/react-router"
+import { BrandLockup } from "@/components/brand-lockup"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -20,9 +21,10 @@ export function Navbar() {
       <div className="flex h-14 items-center justify-between px-4">
         <Link
           to="/"
-          className="font-pixel hover:text-primary text-lg tracking-wide transition-colors"
+          aria-label="criticalbit.gg"
+          className="transition-opacity hover:opacity-80"
         >
-          CriticalBit
+          <BrandLockup />
         </Link>
 
         <div className="flex items-center gap-2">
