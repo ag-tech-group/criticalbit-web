@@ -9,6 +9,8 @@ export default defineConfig({
     environment: "jsdom",
     env: {
       VITE_LOG_LEVEL: "warn",
+      // Absolute URL so ky/MSW can parse it; the host is fake — MSW intercepts.
+      VITE_API_URL: "http://localhost/api",
     },
     setupFiles: ["./src/test/setup.ts"],
     include: ["src/**/*.{test,spec}.{ts,tsx}"],
