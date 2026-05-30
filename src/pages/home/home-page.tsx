@@ -48,6 +48,19 @@ export function HomePage() {
               <li>
                 <a
                   className="crt-menu-row crt-menu-row--active"
+                  href="https://aoe2.criticalbit.gg/kings-gauntlet"
+                >
+                  <span className="crt-menu-cursor" aria-hidden>
+                    ▸
+                  </span>
+                  <span>THE KING&apos;S GAUNTLET</span>
+                  <span className="crt-menu-dots" aria-hidden />
+                  <span>[WATCH]</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  className="crt-menu-row crt-menu-row--active"
                   href="https://vagrant-story.criticalbit.gg"
                 >
                   <span className="crt-menu-cursor" aria-hidden>
