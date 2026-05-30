@@ -47,15 +47,18 @@ export function HomePage() {
             >
               <li>
                 <a
-                  className="crt-menu-row crt-menu-row--active"
+                  className="crt-menu-row crt-menu-row--active crt-menu-row--featured"
                   href="https://aoe2.criticalbit.gg/kings-gauntlet"
                 >
-                  <span className="crt-menu-cursor" aria-hidden>
-                    ▸
+                  <span className="crt-menu-row__line">
+                    <span className="crt-menu-cursor" aria-hidden>
+                      ▸
+                    </span>
+                    <span>THE KING&apos;S GAUNTLET</span>
+                    <span className="crt-menu-dots" aria-hidden />
+                    <span>[WATCH]</span>
                   </span>
-                  <span>THE KING&apos;S GAUNTLET</span>
-                  <span className="crt-menu-dots" aria-hidden />
-                  <span>[WATCH]</span>
+                  <span className="crt-menu-subtitle">Hosted by Hera</span>
                 </a>
               </li>
               <li>

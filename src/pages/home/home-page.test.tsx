@@ -17,6 +17,13 @@ describe("HomePage", () => {
     ).toHaveAttribute("href", "https://aoe2.criticalbit.gg/kings-gauntlet")
   })
 
+  it("credits Hera as host of The King's Gauntlet", async () => {
+    await renderWithFileRoutes(<></>)
+    expect(
+      screen.getByRole("link", { name: /king's gauntlet/i })
+    ).toHaveTextContent(/hosted by hera/i)
+  })
+
   it("orders The King's Gauntlet above Vagrant Story in the menu", async () => {
     await renderWithFileRoutes(<></>)
     const gauntlet = screen.getByRole("link", { name: /king's gauntlet/i })
