@@ -47,7 +47,7 @@ export function HomePage() {
             >
               <li>
                 <a
-                  className="crt-menu-row crt-menu-row--active crt-menu-row--featured"
+                  className="crt-menu-row crt-menu-row--active crt-menu-row--stacked"
                   href="https://aoe2.criticalbit.gg/kings-gauntlet"
                 >
                   <span className="crt-menu-row__line">

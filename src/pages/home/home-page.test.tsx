@@ -24,6 +24,15 @@ describe("HomePage", () => {
     ).toHaveTextContent(/hosted by hera/i)
   })
 
+  it("renders The King's Gauntlet as a regular, non-featured row", async () => {
+    // The tournament has ended, so the marquee frame + pulse is dropped while
+    // the host credit (a stacked subtitle) stays.
+    await renderWithFileRoutes(<></>)
+    const gauntlet = screen.getByRole("link", { name: /king's gauntlet/i })
+    expect(gauntlet).not.toHaveClass("crt-menu-row--featured")
+    expect(gauntlet).toHaveClass("crt-menu-row--stacked")
+  })
+
   it("orders The King's Gauntlet above Vagrant Story in the menu", async () => {
     await renderWithFileRoutes(<></>)
     const gauntlet = screen.getByRole("link", { name: /king's gauntlet/i })
