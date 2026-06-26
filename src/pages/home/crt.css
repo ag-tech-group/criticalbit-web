@@ -409,13 +409,21 @@
   }
 }
 
-/* Featured event — a phosphor frame plus a slower, brighter pulse lifts
-   the marquee event above the peer rows. Switching to a column stacks the
-   "hosted by" credit beneath the label line. */
-.crt-menu-row--featured {
+/* Stacked row — switches to a column so .crt-menu-row__line can carry the
+   horizontal label while a .crt-menu-subtitle (e.g. a host credit) sits
+   beneath it. Layout only, no frame or pulse, so a credited row still reads
+   as a peer of the plain rows. */
+.crt-menu-row--stacked {
   flex-direction: column;
   align-items: stretch;
   gap: 0.4rem;
+}
+
+/* Featured event — a phosphor frame plus a slower, brighter pulse to lift a
+   marquee event above its peers; pair with --stacked when it also needs a
+   subtitle. Currently unused (nothing is featured) — kept for reuse when the
+   next event lands. */
+.crt-menu-row--featured {
   padding: 0.7rem 0.85rem;
   font-size: 1.1rem;
   border: 1px solid color-mix(in oklch, var(--crt-primary) 50%, transparent);
