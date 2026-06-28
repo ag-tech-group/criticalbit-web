@@ -9,6 +9,7 @@ import {
 } from "react"
 import { api, setOnUnauthorized } from "@/api/api"
 import { resetAnalytics } from "@/lib/analytics"
+import { captureException } from "@/lib/sentry"
 import {
   clearCachedConsents,
   fetchConsents,
@@ -105,7 +106,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [clearState])
 
   useEffect(() => {
-    checkAuth()
+    // checkAuth handles its own errors internally; this .catch is a guard so a
+    // future refactor can't leak an unhandled rejection (a bare `void` would
+    // silence the floating-promise lint but not a real runtime rejection).
+    checkAuth().catch((error: unknown) => captureException(error))
   }, [checkAuth])
 
   useEffect(() => {
